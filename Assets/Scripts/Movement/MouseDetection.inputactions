@@ -1,0 +1,54 @@
+{
+    "name": "MouseDetection",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "d50732c8-ac25-40b4-8e3d-6a865947c74f",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "bffadaa1-e36d-4b91-9082-af9c2fd774ad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Action",
+                    "type": "Button",
+                    "id": "d9548c34-6fb5-4a4e-9cc3-9d88db7ec89c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8fb45fa0-151b-4193-861c-e928960f0c6a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "33aefef1-2e2e-4792-93c0-3de63ee079db",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
