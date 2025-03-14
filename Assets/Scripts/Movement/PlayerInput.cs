@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : NetworkBehaviour
 {
     [SerializeField]
     SoundFXManager sfxManager;
@@ -11,6 +12,7 @@ public class PlayerInput : MonoBehaviour
     AudioClip jumpSound;
     [SerializeField]
     MouseDetection player2;
+    Camera initialCamera;
     // track inputs
     private float xMovement;
     private float _currentXVelocity = 0;
@@ -52,14 +54,15 @@ public class PlayerInput : MonoBehaviour
         startX = this.transform.position.x;
         startY = this.transform.position.y;
 
-        
+       // initialCamera = Camera.current;
+       // initialCamera.enabled = false;
         sfxManager = FindFirstObjectByType<SoundFXManager>();
         GravityMath();
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if (!IsOwner) return;
         float multiplier = 3f;
         // update velocity
         //Debug.Log(touchingOtherPlayer);
@@ -67,11 +70,11 @@ public class PlayerInput : MonoBehaviour
         {
             if (player2._platformVelocity > 0.5f)
             {
-                _currentXVelocity = -1 * multiplier * player2._platformVelocity;
+                _currentXVelocity = player2._platformVelocity;
             }
             else if (player2._platformVelocity < -0.5f)
             {
-                _currentXVelocity = -1 * multiplier * player2._platformVelocity;
+                _currentXVelocity = player2._platformVelocity;
             }
             
         }
@@ -110,6 +113,7 @@ public class PlayerInput : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext ctx)
     {
+        //Debug.Log("Call move 2.");
         xMovement = ctx.ReadValue<float>();
         
         float speedToAdd = xMovement * speed;
@@ -138,7 +142,7 @@ public class PlayerInput : MonoBehaviour
     public void IsGrounded()
     {
         grounded = (Physics2D.Raycast((new Vector2(_rigidbody.transform.position.x, _rigidbody.transform.position.y + 1.25f)), Vector3.down, 2f, 1 << LayerMask.NameToLayer("Ground")));
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         //grounded = (Physics2D.BoxCast((new Vector2(_rigidbody.transform.position.x, _rigidbody.transform.position.y + 1.25f)), Vector3.down));
         Debug.DrawRay((new Vector3(_rigidbody.transform.position.x, _rigidbody.transform.position.y + 0.5f, _rigidbody.transform.position.z)), Vector3.down, Color.green, 5);
         

@@ -9,7 +9,7 @@
                     "name": "Move",
                     "type": "Button",
                     "id": "e18f5e2c-d162-4f45-a29b-69350a66ce70",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -18,7 +18,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "d144acb8-31cc-4b84-bb4b-4689c451f99f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -27,7 +27,7 @@
                     "name": "Interrupt",
                     "type": "Button",
                     "id": "7a99d27b-49eb-4714-8837-841776271e58",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -68,53 +68,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Horizontal Movement",
-                    "id": "d7b9785d-0619-4516-b40e-b44848d88cb5",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "54a9cec9-d961-417b-ad1a-f73e84f935e8",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "acbdb1ca-c1c5-4d47-9403-b6a783ea0f7a",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "cba1fe27-ea67-4d83-8317-967950318f90",
                     "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2b7b71e5-c0bc-4eea-8b83-250c6f2d958d",
-                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
