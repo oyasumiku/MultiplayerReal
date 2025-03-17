@@ -33,8 +33,8 @@ public class PlayerSpawner : NetworkBehaviour
     [SerializeField]
     GameObject player1;
 
-    [SerializeField]
-    GameObject player2;
+    //[SerializeField]
+    //GameObject player2;
 
     [SerializeField]
     GameObject newp2;
@@ -45,7 +45,8 @@ public class PlayerSpawner : NetworkBehaviour
     {
         if (IsServer)
         {
-            if (!(GameObject.FindGameObjectWithTag("Player1"))) {
+            if (true || !GameObject.FindGameObjectWithTag("Player1"))
+            {
                 var instance = Instantiate(player1);
                 var instanceNetworkObject = instance.GetComponent<NetworkObject>();
                 instanceNetworkObject.Spawn();
@@ -54,13 +55,15 @@ public class PlayerSpawner : NetworkBehaviour
                 var instanceNetworkObject2 = instance2.GetComponent<NetworkObject>();
                 instanceNetworkObject2.Spawn();
             }
-            else {
-                
-            }
+            
+           /* if (!GameObject.FindGameObjectWithTag("Player2"))
+            {
+                var instance2 = Instantiate(newp2);
+                var instanceNetworkObject2 = instance2.GetComponent<NetworkObject>();
+                instanceNetworkObject2.Spawn();
+            }*/
+            
 
-            /*var instance2 = Instantiate(player2);
-            var instanceNetworkObject2 = instance2.GetComponent<NetworkObject>();
-            instanceNetworkObject2.Spawn();*/
         }
 
     }

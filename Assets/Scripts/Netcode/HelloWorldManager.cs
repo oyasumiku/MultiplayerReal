@@ -100,7 +100,7 @@ namespace HelloWorld
             else
             {
                 SetStartButtons(false);
-                SetMoveButton(true);
+                //SetMoveButton(true);
                 UpdateStatusLabels();
             }
         }

@@ -1,6 +1,8 @@
 using System;
 using Unity.Netcode;
-using UnityEditor.Timeline;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 

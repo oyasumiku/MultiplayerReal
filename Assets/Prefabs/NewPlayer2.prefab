@@ -259,6 +259,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   test: {fileID: 0}
   _currentXVelocity: 0
+  runNetwork: 0
   characterMovable: {fileID: 0}
   speed: 10
   _platformVelocity: 0

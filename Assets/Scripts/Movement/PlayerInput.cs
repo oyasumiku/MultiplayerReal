@@ -43,9 +43,14 @@ public class PlayerInput : NetworkBehaviour
     private float startY;
     public bool touchingOtherPlayer = false;
 
+    [SerializeField]
+    Material firstMat;
+    [SerializeField]
+    Material secondMat;
 
 
-    
+
+    MeshRenderer _meshRenderer;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -58,26 +63,36 @@ public class PlayerInput : NetworkBehaviour
        // initialCamera.enabled = false;
         sfxManager = FindFirstObjectByType<SoundFXManager>();
         GravityMath();
+        _meshRenderer = GetComponent<MeshRenderer>();
+        if (IsOwner)
+        {
+            Material[] material = _meshRenderer.materials;
+            material[0] = secondMat;
+        }
+        else
+        {
+            Material[] material = _meshRenderer.materials;
+            material[0] = secondMat;
+        }
+
+        if(!IsHost)
+        {
+            //Camera.main.enabled = false;
+        }
+
+        if(GameObject.FindGameObjectsWithTag("Player1").Length > 1)
+        {
+            transform.position = new Vector2(10, startY);
+        }
     }
     // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.Log(getXDirection());
         if (!IsOwner) return;
         float multiplier = 3f;
-        // update velocity
-        //Debug.Log(touchingOtherPlayer);
-        if (touchingOtherPlayer)
-        {
-            if (player2._platformVelocity > 0.5f)
-            {
-                _currentXVelocity = player2._platformVelocity;
-            }
-            else if (player2._platformVelocity < -0.5f)
-            {
-                _currentXVelocity = player2._platformVelocity;
-            }
-            
-        }
+    
+        // update the velocity 
         _rigidbody.linearVelocity = new Vector2(_currentXVelocity, _rigidbody.linearVelocity.y);
 
 
@@ -134,7 +149,7 @@ public class PlayerInput : NetworkBehaviour
             //Debug.Log("Can jump");
             _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, 0);
             _rigidbody.AddForce(jump * jumpForce, ForceMode2D.Impulse);
-            sfxManager.PlayClip(jumpSound, transform, 0.5f);
+            sfxManager.PlayClip(jumpSound, transform, 0.1f);
         }
         
     }
@@ -149,13 +164,24 @@ public class PlayerInput : NetworkBehaviour
 
     }
 
+    public int getXDirection ()
+    {
+        if (_currentXVelocity > 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return -1;
+        }
+    }
     void OnCollisionStay2D(Collision2D other)
     {
         if (player2 == null)
         {
             player2 = FindFirstObjectByType<MouseDetection>();
         }
-        if (other.gameObject.CompareTag("Player2"))
+        if (other.gameObject.CompareTag("Player1"))
         {
             touchingOtherPlayer = true;
         }
@@ -167,7 +193,7 @@ public class PlayerInput : NetworkBehaviour
 
     void OnCollisionExit2D (Collision2D col)
     {
-        if (col.gameObject.CompareTag("Player2"))
+        if (col.gameObject.CompareTag("Player1"))
         {
             touchingOtherPlayer = true;
         }

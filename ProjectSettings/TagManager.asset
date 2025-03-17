@@ -8,6 +8,11 @@ TagManager:
   - Player1
   - SoundManager
   - InitialCamera
+  - FirstCamera
+  - Ball
+  - floor1
+  - floor2
+  - wall
   layers:
   - Default
   - TransparentFX

@@ -97,7 +97,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05b9d0834b9000543818114263cd92fa, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -225,6 +225,8 @@ MonoBehaviour:
   gravityForce: 358
   gravity: {fileID: 3193675468950059304}
   touchingOtherPlayer: 0
+  firstMat: {fileID: 2100000, guid: 05b9d0834b9000543818114263cd92fa, type: 2}
+  secondMat: {fileID: 2100000, guid: edee43c52b350fa45a2cb0ef61f59040, type: 2}
 --- !u!114 &2840860467008604223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2170325711037996462
 Transform:
   m_ObjectHideFlags: 0

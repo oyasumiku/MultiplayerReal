@@ -72,7 +72,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   player1: {fileID: 2265690932392743621, guid: e557656ae720e6548acb05199da9bf92, type: 3}
-  player2: {fileID: 6243959596545537042, guid: 1f21baa482302a940a95386884da6b0e, type: 3}
   newp2: {fileID: 8370171874064459214, guid: 5f7b85ea4d5a6fd4d91881c191657f05, type: 3}
   Position:
     m_InternalValue: {x: 0, y: 0, z: 0}

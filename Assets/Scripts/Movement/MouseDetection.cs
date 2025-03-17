@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -49,10 +51,7 @@ public class MouseDetection : NetworkBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (runNetwork)
-        {
-            if (!IsOwner) return;
-        }
+        //if (!IsOwner) return;
         //
         _platformVelocity = _currentXVelocity;
 
